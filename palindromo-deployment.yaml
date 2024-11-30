@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: utn-palindromo
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: utn-palindromo
+  template:
+    metadata:
+      labels:
+        app: utn-palindromo
+    spec:
+      containers:
+      - name: node-palindromo
+        image: jonatanmuller07/palindromo:1.0
+        ports:
+        - containerPort: 8080
